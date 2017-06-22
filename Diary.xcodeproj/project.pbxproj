@@ -24,6 +24,9 @@
 		0E4D62FD1EFC1ECA00149214 /* DiaryLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62FC1EFC1ECA00149214 /* DiaryLocationHelper.swift */; };
 		0E4D63021EFC225900149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D62FE1EFC223500149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf */; };
 		0E4D63031EFC225C00149214 /* Wyue-GutiFangsong-NC.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D63001EFC223F00149214 /* Wyue-GutiFangsong-NC.otf */; };
+		0E4D63091EFC3E1800149214 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D63071EFC3E1800149214 /* Diary.xcdatamodeld */; };
+		0E4D63141EFC476B00149214 /* Diary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D63121EFC476B00149214 /* Diary+CoreDataClass.swift */; };
+		0E4D63151EFC476B00149214 /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D63131EFC476B00149214 /* Diary+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		0E4D62FC1EFC1ECA00149214 /* DiaryLocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryLocationHelper.swift; sourceTree = "<group>"; };
 		0E4D62FE1EFC223500149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WenYue-GuDianMingChaoTi-NC-W5.otf"; path = "Fonts/WenYue-GuDianMingChaoTi-NC-W5.otf"; sourceTree = SOURCE_ROOT; };
 		0E4D63001EFC223F00149214 /* Wyue-GutiFangsong-NC.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Wyue-GutiFangsong-NC.otf"; path = "Fonts/Wyue-GutiFangsong-NC.otf"; sourceTree = SOURCE_ROOT; };
+		0E4D63081EFC3E1800149214 /* Diary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Diary.xcdatamodel; sourceTree = "<group>"; };
+		0E4D63121EFC476B00149214 /* Diary+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0E4D63131EFC476B00149214 /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Diary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +99,11 @@
 				0E4D62E51EFBDC8200149214 /* Fonts */,
 				0E4D62D61EFBCD4D00149214 /* Assets.xcassets */,
 				0E4D62D81EFBCD4D00149214 /* LaunchScreen.storyboard */,
+				0E4D63121EFC476B00149214 /* Diary+CoreDataClass.swift */,
+				0E4D63131EFC476B00149214 /* Diary+CoreDataProperties.swift */,
 				0E4D62DB1EFBCD4D00149214 /* Info.plist */,
 				0E4D62FC1EFC1ECA00149214 /* DiaryLocationHelper.swift */,
+				0E4D63071EFC3E1800149214 /* Diary.xcdatamodeld */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -183,14 +192,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E4D63151EFC476B00149214 /* Diary+CoreDataProperties.swift in Sources */,
 				0E4D62F91EFC0F6200149214 /* DiaryAnimator.swift in Sources */,
 				0E4D62EF1EFBE35700149214 /* DiaryLayout.swift in Sources */,
+				0E4D63091EFC3E1800149214 /* Diary.xcdatamodeld in Sources */,
 				0E4D62F31EFBEBFD00149214 /* DiaryYearCollectionViewController.swift in Sources */,
 				0E4D62E91EFBDDCC00149214 /* HomeCollectionViewController.swift in Sources */,
 				0E4D62F51EFBEC1600149214 /* DiaryCell.swift in Sources */,
 				0E4D62ED1EFBE1CD00149214 /* Constants.swift in Sources */,
 				0E4D62FD1EFC1ECA00149214 /* DiaryLocationHelper.swift in Sources */,
 				0E4D62FB1EFC137000149214 /* DiaryComposeViewController.swift in Sources */,
+				0E4D63141EFC476B00149214 /* Diary+CoreDataClass.swift in Sources */,
 				0E4D62F71EFBF12100149214 /* DiaryMonthCollectionViewController.swift in Sources */,
 				0E4D62D01EFBCD4D00149214 /* AppDelegate.swift in Sources */,
 				0E4D62E21EFBD77C00149214 /* DiaryLabel.swift in Sources */,
@@ -361,6 +373,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0E4D63071EFC3E1800149214 /* Diary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0E4D63081EFC3E1800149214 /* Diary.xcdatamodel */,
+			);
+			currentVersion = 0E4D63081EFC3E1800149214 /* Diary.xcdatamodel */;
+			path = Diary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0E4D62C41EFBCD4D00149214 /* Project object */;
 }

@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let managedContext = appDelegate.managedObjectContext
 
 let itemHeight: CGFloat = 150.0
 let itemWidth: CGFloat = 60

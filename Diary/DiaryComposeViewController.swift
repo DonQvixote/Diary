@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 let titleTextViewHeight: CGFloat = 30.0
 let contentMargin: CGFloat = 20.0
@@ -56,6 +57,7 @@ class DiaryComposeViewController: UIViewController {
         
         finishButton = diaryButtonWith(text: "完", fontSize: 18.0, width: 50.0, normalImageName: "Oval", highlightedImageName: "Oval_pressed")
         finishButton.center = CGPoint(x: screenSize.width - 20, y: screenSize.height - 30)
+        finishButton.addTarget(self, action: #selector(finishCompose(_:)), for: .touchUpInside)
         self.view.addSubview(finishButton)
         
         self.finishButton.center = CGPoint(x: self.view.frame.width - self.finishButton.frame.size.height / 2.0 - 10, y: self.view.frame.height - self.finishButton.frame.size.height / 2.0 - 10)
@@ -100,6 +102,38 @@ class DiaryComposeViewController: UIViewController {
         }
     }
     
+    func finishCompose(_ button: UIButton) {
+        // 取消输入框的编辑状态,收起键盘
+        self.composeView.endEditing(true)
+        self.locationTextView.endEditing(true)
+        
+        // 确保有文字内容才保存
+        if composeView.text.lengthOfBytes(using: String.Encoding.utf8) > 1 {
+            let entity = NSEntityDescription.entity(forEntityName: "Diary", in: managedContext!)
+            let newDiary = Diary(entity: entity!, insertInto: managedContext)
+            newDiary.content = composeView.text
+            
+            if let address = locationHelper.address {
+                newDiary.location = address
+            }
+            
+            if let title = titleTextView.text {
+                newDiary.title = title
+            }
+            
+            newDiary.updateTimeWithDate(Date())
+            
+            var error: NSError?
+            do {
+                try managedContext?.save()
+            } catch let error1 as NSError {
+                error = error!
+                print("保存错误\(String(describing: error)),  \(error?.userInfo)")
+            }
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
