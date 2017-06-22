@@ -16,13 +16,14 @@
 		0E4D62EB1EFBDEB600149214 /* HomeYearCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62EA1EFBDEB600149214 /* HomeYearCollectionViewCell.swift */; };
 		0E4D62ED1EFBE1CD00149214 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62EC1EFBE1CD00149214 /* Constants.swift */; };
 		0E4D62EF1EFBE35700149214 /* DiaryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62EE1EFBE35700149214 /* DiaryLayout.swift */; };
-		0E4D62F01EFBE7CD00149214 /* Wyue-GutiFangsong-NC.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D62E71EFBDCA800149214 /* Wyue-GutiFangsong-NC.otf */; };
-		0E4D62F11EFBE7D200149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D62E61EFBDCA200149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf */; };
 		0E4D62F31EFBEBFD00149214 /* DiaryYearCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62F21EFBEBFC00149214 /* DiaryYearCollectionViewController.swift */; };
 		0E4D62F51EFBEC1600149214 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62F41EFBEC1600149214 /* DiaryCell.swift */; };
 		0E4D62F71EFBF12100149214 /* DiaryMonthCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62F61EFBF12100149214 /* DiaryMonthCollectionViewController.swift */; };
 		0E4D62F91EFC0F6200149214 /* DiaryAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62F81EFC0F6200149214 /* DiaryAnimator.swift */; };
 		0E4D62FB1EFC137000149214 /* DiaryComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62FA1EFC137000149214 /* DiaryComposeViewController.swift */; };
+		0E4D62FD1EFC1ECA00149214 /* DiaryLocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D62FC1EFC1ECA00149214 /* DiaryLocationHelper.swift */; };
+		0E4D63021EFC225900149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D62FE1EFC223500149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf */; };
+		0E4D63031EFC225C00149214 /* Wyue-GutiFangsong-NC.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D63001EFC223F00149214 /* Wyue-GutiFangsong-NC.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +34,6 @@
 		0E4D62D91EFBCD4D00149214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E4D62DB1EFBCD4D00149214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E4D62E11EFBD77C00149214 /* DiaryLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryLabel.swift; sourceTree = "<group>"; };
-		0E4D62E61EFBDCA200149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WenYue-GuDianMingChaoTi-NC-W5.otf"; path = "Fonts/WenYue-GuDianMingChaoTi-NC-W5.otf"; sourceTree = "<group>"; };
-		0E4D62E71EFBDCA800149214 /* Wyue-GutiFangsong-NC.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Wyue-GutiFangsong-NC.otf"; path = "Fonts/Wyue-GutiFangsong-NC.otf"; sourceTree = "<group>"; };
 		0E4D62E81EFBDDCC00149214 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		0E4D62EA1EFBDEB600149214 /* HomeYearCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeYearCollectionViewCell.swift; sourceTree = "<group>"; };
 		0E4D62EC1EFBE1CD00149214 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -44,6 +43,9 @@
 		0E4D62F61EFBF12100149214 /* DiaryMonthCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryMonthCollectionViewController.swift; sourceTree = "<group>"; };
 		0E4D62F81EFC0F6200149214 /* DiaryAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryAnimator.swift; sourceTree = "<group>"; };
 		0E4D62FA1EFC137000149214 /* DiaryComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryComposeViewController.swift; sourceTree = "<group>"; };
+		0E4D62FC1EFC1ECA00149214 /* DiaryLocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryLocationHelper.swift; sourceTree = "<group>"; };
+		0E4D62FE1EFC223500149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WenYue-GuDianMingChaoTi-NC-W5.otf"; path = "Fonts/WenYue-GuDianMingChaoTi-NC-W5.otf"; sourceTree = SOURCE_ROOT; };
+		0E4D63001EFC223F00149214 /* Wyue-GutiFangsong-NC.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Wyue-GutiFangsong-NC.otf"; path = "Fonts/Wyue-GutiFangsong-NC.otf"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				0E4D62D61EFBCD4D00149214 /* Assets.xcassets */,
 				0E4D62D81EFBCD4D00149214 /* LaunchScreen.storyboard */,
 				0E4D62DB1EFBCD4D00149214 /* Info.plist */,
+				0E4D62FC1EFC1ECA00149214 /* DiaryLocationHelper.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -99,8 +102,8 @@
 		0E4D62E51EFBDC8200149214 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				0E4D62E71EFBDCA800149214 /* Wyue-GutiFangsong-NC.otf */,
-				0E4D62E61EFBDCA200149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf */,
+				0E4D62FE1EFC223500149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf */,
+				0E4D63001EFC223F00149214 /* Wyue-GutiFangsong-NC.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -165,8 +168,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E4D62F11EFBE7D200149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf in Resources */,
-				0E4D62F01EFBE7CD00149214 /* Wyue-GutiFangsong-NC.otf in Resources */,
+				0E4D63031EFC225C00149214 /* Wyue-GutiFangsong-NC.otf in Resources */,
+				0E4D63021EFC225900149214 /* WenYue-GuDianMingChaoTi-NC-W5.otf in Resources */,
 				0E4D62DA1EFBCD4D00149214 /* LaunchScreen.storyboard in Resources */,
 				0E4D62D71EFBCD4D00149214 /* Assets.xcassets in Resources */,
 				0E4D62D51EFBCD4D00149214 /* Main.storyboard in Resources */,
@@ -186,6 +189,7 @@
 				0E4D62E91EFBDDCC00149214 /* HomeCollectionViewController.swift in Sources */,
 				0E4D62F51EFBEC1600149214 /* DiaryCell.swift in Sources */,
 				0E4D62ED1EFBE1CD00149214 /* Constants.swift in Sources */,
+				0E4D62FD1EFC1ECA00149214 /* DiaryLocationHelper.swift in Sources */,
 				0E4D62FB1EFC137000149214 /* DiaryComposeViewController.swift in Sources */,
 				0E4D62F71EFBF12100149214 /* DiaryMonthCollectionViewController.swift in Sources */,
 				0E4D62D01EFBCD4D00149214 /* AppDelegate.swift in Sources */,

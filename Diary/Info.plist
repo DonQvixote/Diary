@@ -33,6 +33,8 @@
 		<string>Wyue-GutiFangsong-NC.otf</string>
 		<string>WenYue-GuDianMingChaoTi-NC-W5.otf</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>在撰写日记的时候自动添加位置</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
