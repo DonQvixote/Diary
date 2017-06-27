@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "DiaryCell"
 
 class DiaryMonthCollectionViewController: UICollectionViewController {
     
     var month: Int!
+    var year: Int!
     var yearLabel: DiaryLabel!
     var monthLabel: DiaryLabel!
+    var fetchedResultsController: NSFetchedResultsController<Diary>!
+    var diaries = [Diary]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +46,27 @@ class DiaryMonthCollectionViewController: UICollectionViewController {
                                   height: monthLabel.frame.size.height)
         self.view.addSubview(monthLabel)
         
+        // 添加按钮
         let composeButton = diaryButtonWith(text: "撰", fontSize: 14.0, width: 40.0, normalImageName: "Oval", highlightedImageName: "Oval_pressed")
         composeButton.center = CGPoint(x: yearLabel.center.x, y: 38 + yearLabel.frame.size.height + 26.0 / 2.0)
         composeButton.addTarget(self, action: #selector(newCompose), for: .touchUpInside)
         self.view.addSubview(composeButton)
+        
+        do {
+            let fetchRequest = NSFetchRequest<Diary>(entityName: "Diary")
+            fetchRequest.predicate = NSPredicate(format: "year = \(year!) AND month = \(month!)")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: true)]
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchedResultsController.delegate = self // 建立委托关系
+            try fetchedResultsController.performFetch()
+            if fetchedResultsController.sections?.count == 0 {
+                print("没有储存结果")
+            } else {
+                diaries = fetchedResultsController.fetchedObjects!
+            }
+        } catch let error as NSError {
+            print("发现错误 \(error.localizedDescription)")
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -81,16 +102,22 @@ class DiaryMonthCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        return diaries.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! DiaryCell
     
         // Configure the cell
-        cell.textInt = 1
-        cell.labelText = "季风气候"
+        let diary = diaries[indexPath.row]
+        cell.labelText = diary.title!
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dvc = self.storyboard?.instantiateViewController(withIdentifier: "DiaryViewController") as! DiaryViewController
+        dvc.diary = diaries[indexPath.row]
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
 
     // MARK: UICollectionViewDelegate
@@ -124,4 +151,16 @@ class DiaryMonthCollectionViewController: UICollectionViewController {
     }
     */
 
+}
+
+extension DiaryMonthCollectionViewController: NSFetchedResultsControllerDelegate {
+    // 响应数据变化
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        // 重置数据源
+        diaries = controller.fetchedObjects! as! [Diary]
+        // 重载数据
+        self.collectionView?.reloadData()
+        // 更新布局
+        self.collectionView?.setCollectionViewLayout(DiaryLayout(), animated: false)
+    }
 }

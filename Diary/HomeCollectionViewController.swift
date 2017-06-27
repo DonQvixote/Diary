@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "HomeYearCollectionViewCell"
 
 class HomeCollectionViewController: UICollectionViewController {
+    
+    var diaries = [Diary]()
+    var fetchedResultsController: NSFetchedResultsController<Diary>!
+    var yearsCount: Int = 1
+    var sectionsCount: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,31 @@ class HomeCollectionViewController: UICollectionViewController {
         self.collectionView?.setCollectionViewLayout(yearLayout, animated: false)
 
         // Do any additional setup after loading the view.
+        
+        do {
+            // 新建查询
+            let fetchRequest = NSFetchRequest<Diary>(entityName: "Diary")
+            // 排序方式
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: true)]
+            fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: "year", cacheName: nil)
+
+            // 尝试查询
+            try self.fetchedResultsController.performFetch()
+            
+            if fetchedResultsController.fetchedObjects?.count == 0 {
+                print("没有存储结果")
+            } else {
+                if let sectionsCount = fetchedResultsController.sections?.count {
+                    yearsCount = sectionsCount
+                    diaries = fetchedResultsController.fetchedObjects!
+                } else {
+                    sectionsCount = 0
+                    yearsCount = 1
+                }
+            }
+        } catch let error as NSError {
+            print("发现错误: \(error.localizedDescription)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +79,7 @@ class HomeCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return yearsCount
     }
 
 
@@ -60,10 +91,19 @@ class HomeCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HomeYearCollectionViewCell
     
+        // 获取当前月份
+        let components = Calendar.current.component(Calendar.Component.year, from: Date())
+        var year = components
+        
+        if sectionsCount > 0 {
+            // 如果程序有保存的日记,就是用保存的日记的年份
+            let sectionInfo = fetchedResultsController.sections![indexPath.section]
+            print("分组信息 \(sectionInfo.name)")
+            year = Int(sectionInfo.name)!
+        }
         // Configure the cell
-        cell.textInt = 2017
-        cell.labelText = "二零一七 年"
-    
+        cell.textInt = year
+        cell.labelText = "\(numberToChinese(cell.textInt)) 年"
         return cell
     }
 
@@ -100,7 +140,14 @@ class HomeCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let identifier = "DiaryYearColletionViewColltroller"
         let dvc = self.storyboard?.instantiateViewController(withIdentifier: identifier) as! DiaryYearCollectionViewController
-        dvc.year = 2017
+        let components = Calendar.current.component(Calendar.Component.year, from: Date())
+        var year = components
+        if sectionsCount > 0 {
+            let sectionInfo = fetchedResultsController.sections![(indexPath as NSIndexPath).row]
+            print("Section info \(sectionInfo.name)")
+            year = Int(sectionInfo.name)!
+        }
+        dvc.year = year
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 

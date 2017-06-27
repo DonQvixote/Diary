@@ -18,7 +18,8 @@ let DiaryLocationFont = UIFont(name: defaultFont, size: 16)
 let DiaryTitleFont = UIFont(name: defaultFont, size: 18)
 
 class DiaryComposeViewController: UIViewController {
-
+    var diary: Diary?
+    
     var composeView: UITextView!
     var locationTextView: UITextView!
     var titleTextView: UITextView!
@@ -54,6 +55,15 @@ class DiaryComposeViewController: UIViewController {
         self.view.addSubview(composeView)
         self.view.addSubview(locationTextView)
         self.view.addSubview(titleTextView)
+        
+        if let diary = diary {
+            composeView.text = diary.content
+            locationTextView.text = diary.location
+            
+            if let title = diary.title {
+                titleTextView.text = title
+            }
+        }
         
         finishButton = diaryButtonWith(text: "完", fontSize: 18.0, width: 50.0, normalImageName: "Oval", highlightedImageName: "Oval_pressed")
         finishButton.center = CGPoint(x: screenSize.width - 20, y: screenSize.height - 30)
@@ -109,26 +119,31 @@ class DiaryComposeViewController: UIViewController {
         
         // 确保有文字内容才保存
         if composeView.text.lengthOfBytes(using: String.Encoding.utf8) > 1 {
-            let entity = NSEntityDescription.entity(forEntityName: "Diary", in: managedContext!)
-            let newDiary = Diary(entity: entity!, insertInto: managedContext)
-            newDiary.content = composeView.text
-            
-            if let address = locationHelper.address {
-                newDiary.location = address
-            }
-            
-            if let title = titleTextView.text {
-                newDiary.title = title
-            }
-            
-            newDiary.updateTimeWithDate(Date())
-            
-            var error: NSError?
-            do {
-                try managedContext?.save()
-            } catch let error1 as NSError {
-                error = error!
-                print("保存错误\(String(describing: error)),  \(error?.userInfo)")
+            // 如果是修改 Diary,则保存到原日记中
+            if let diary = diary{
+                diary.content = composeView.text
+                diary.location = locationTextView.text
+                diary.title = titleTextView.text
+            } else {
+                let entity = NSEntityDescription.entity(forEntityName: "Diary", in: managedContext)
+                let newDiary = Diary(entity: entity!, insertInto: managedContext)
+                newDiary.content = composeView.text
+                
+                if let address = locationHelper.address {
+                    newDiary.location = address
+                }
+                
+                if let title = titleTextView.text {
+                    newDiary.title = title
+                }
+                
+                newDiary.updateTimeWithDate(Date())
+                
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("保存错误\(String(describing: error)),  \(String(describing: error.userInfo))")
+                }
             }
         }
         

@@ -13,7 +13,7 @@
         <scene sceneID="tEE-rj-MiX">
             <objects>
                 <collectionViewController id="P1A-aW-iRJ" customClass="HomeCollectionViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="sMa-Nj-2AK">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sMa-Nj-2AK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,7 +48,7 @@
         <scene sceneID="iMV-m2-Qiu">
             <objects>
                 <collectionViewController storyboardIdentifier="DiaryYearColletionViewColltroller" id="JO1-kO-0gh" customClass="DiaryYearCollectionViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="jHh-nW-wLb">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="jHh-nW-wLb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,7 +82,7 @@
         <scene sceneID="qkj-Ef-7Pj">
             <objects>
                 <collectionViewController storyboardIdentifier="DiaryMonthCollectionViewController" id="cjG-Rd-GKx" customClass="DiaryMonthCollectionViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="duG-X6-cPp">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="duG-X6-cPp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,6 +112,24 @@
             </objects>
             <point key="canvasLocation" x="1794" y="781"/>
         </scene>
+        <!--Diary View Controller-->
+        <scene sceneID="TIb-bN-dUu">
+            <objects>
+                <viewController storyboardIdentifier="DiaryViewController" id="Q2L-1x-09s" customClass="DiaryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yKE-wt-QYd"/>
+                        <viewControllerLayoutGuide type="bottom" id="iGG-R6-awk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LRw-0S-vgv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qsR-BF-YO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2665" y="455"/>
+        </scene>
         <!--Diary Compose View Controller-->
         <scene sceneID="DfV-Jt-BTb">
             <objects>
@@ -128,14 +146,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RMA-vP-4lH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2631" y="780"/>
+            <point key="canvasLocation" x="2666" y="1125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mxX-Qx-hrm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="JtY-Mf-HDI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VKQ-Bv-6Uf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VKQ-Bv-6Uf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
